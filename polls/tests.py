@@ -22,3 +22,6 @@ class QuestionMethodTests(TestCase):
         time = timezone.now() - datetime.timedelta(days=0.5)
         recent_question = Question(pub_date=time)
         self.assertIs(recent_question.was_published_recently(), True)
+
+class QuestionViewTests(TestCase):
+    pass

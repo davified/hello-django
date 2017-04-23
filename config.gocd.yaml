@@ -4,7 +4,7 @@ environments:
     environment_variables:
       EXAMPLE_DEPLOYMENT: testing
     pipelines:
-      - yaml-example
+      - hello-django
 pipelines:
   hello-django:
     group: django-app-group

@@ -1,0 +1,30 @@
+#ci.gocd.yaml
+environments:
+  testing:
+    environment_variables:
+      DEPLOYMENT: testing
+    secure_variables:
+      ENV_PASSWORD: "s&Du#@$xsSa"
+    pipelines:
+      - example-deploy-testing
+      - build-testing
+pipelines:
+  pipeline:
+    materials:
+      git:
+        _url: "https://github.com/davified/hello-django"
+    stage:
+      jobs:
+        job:
+          tasks:
+            exec:
+              arg:
+                - "-cl"
+                - python
+                - "manage.py"
+                - test
+              _command: bash
+          _name:  unitTest
+      _name:  build
+    _name:  "first-pipeline"
+  _group: defaultGroup

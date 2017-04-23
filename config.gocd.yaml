@@ -1,6 +1,6 @@
 #config.gocd.yaml
 environments:
-  example:
+  dev:
     environment_variables:
       EXAMPLE_DEPLOYMENT: testing
     pipelines:
@@ -14,7 +14,14 @@ pipelines:
     stages:
       - build: # name of stage
           jobs:
-            build: # name of the job
+            helloGocd: # name of the job
+              tasks:
+               - exec: # indicates type of task
+                   command: bash
+                   arguments:
+                    - "echo"
+                    - "hello gocd"
+            runUnitTests: # name of the job
               tasks:
                - exec: # indicates type of task
                    command: bash
@@ -23,27 +30,3 @@ pipelines:
                     - "python"
                     - "manage.py"
                     - "test"
-#environments:
-#  testing:
-#    environment_variables:
-#      DEPLOYMENT: testing
-#    pipelines:
-#      - build-testing
-#pipelines:
-#  hello-django:
-#    group: hello-django
-#    materials:
-#      mygit:
-#        git: "https://github.com/davified/hello-django"
-#    stages:
-#      - build: # name of stage
-#          jobs:
-#            build: # name of the job
-#              tasks:
-#               - exec: # indicates type of task
-#                   command: bash
-#                   arguments:
-#                      - "-cl"
-#                      - python
-#                      - "manage.py"
-#                      - test

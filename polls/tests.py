@@ -39,7 +39,7 @@ class QuestionViewTests(TestCase):
     @skip("temporarily skipping test")
     def test_index_view_with_no_questions(self):
         """
-        If no questions exist, an appropriate message should be displayed.
+        If no questions exist, an appropriate message should be displayed .
         """
         response = self.client.get('/polls/')
         self.assertContains(response, "No polls are available.")

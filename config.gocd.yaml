@@ -19,6 +19,7 @@ pipelines:
                - exec: # indicates type of task
                    command: bash
                    arguments:
+                    - "-cl"
                     - "echo"
                     - "hello gocd"
             runUnitTests: # name of the job

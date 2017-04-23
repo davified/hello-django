@@ -16,7 +16,7 @@ pipelines:
           jobs:
             build: # name of the job
               tasks:
-               - exec: # indicates  type of task
+               - exec: # indicates type of task
                    command: bash
                    arguments:
                       - "-cl"
